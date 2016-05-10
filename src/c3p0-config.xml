@@ -1,0 +1,14 @@
+<c3p0-config>
+  <default-config>
+ 
+    <property name="jdbcUrl">jdbc:mysql://localhost:3306/GKCalendar?useUnicode=true&amp;characterEncoding=utf-8</property>
+	<property name="driverClass">com.mysql.jdbc.Driver</property>
+	<property name="user">root</property>
+	<property name="password">141016</property>
+	<property name="minPoolSize">3</property>
+	<property name="initialPoolSize">10</property>
+	<property name="maxPoolSize">40</property>
+	<property name="maxIdleTime">300</property>
+  </default-config>
+
+</c3p0-config>
