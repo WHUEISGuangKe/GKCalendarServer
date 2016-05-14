@@ -49,7 +49,7 @@ public class LoginFilter implements Filter {
 		HttpServletResponse response = (HttpServletResponse) res;
 
 		String uri = request.getRequestURI();
-		if (uri.indexOf("login") >= 0 || uri.indexOf("register") >= 0 || uri.indexOf("error") >= 0) {
+		if (uri.indexOf("login") >= 0 || uri.indexOf("register") >= 0 || uri.indexOf("error") >= 0 || uri.indexOf("isLogin") > 0 || uri.indexOf("logout") > 0) {
 
 		} else {
 			String token = request.getParameter("token");

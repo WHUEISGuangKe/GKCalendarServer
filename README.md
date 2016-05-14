@@ -19,14 +19,14 @@
 	
 	返回
 		{
-    		"message": 1, // 登录成功
-    		"ret_code": 200,
+    		"message": "登录成功", // 
+    		"ret_code": 1,
     		"token": "3506402"
 		}
 		
 		{
-			"message":0, // 登录失败
-			"ret_code":200
+			"message":"登录失败", // 登录失败
+			"ret_code":0
 		}
 		
 ### 1.2 注册
@@ -38,12 +38,12 @@
 	返回
 		{
 			"message":"注册成功", 
-			"ret_code":200
+			"ret_code":1
 		}
 		
 		{
 			"message":"注册失败", 
-			"ret_code":200
+			"ret_code":0
 		}
 ### 1.3 退出	
 	请求
@@ -54,12 +54,29 @@
 	返回
 		{
 			"message":"退出成功", 
-			"ret_code":200
+			"ret_code":1
 		}
 		
 		{
 			"message":"请先登录", 
-			"ret_code":200
+			"ret_code":-1
+		}
+
+### 1.4 登陆状态校验
+	请求
+		接口：http://localhost:8080/GKCalendarServer/user_isLogin
+		参数：username（用户名）、 token
+		示例：http://localhost:8080/GKCalendarServer/user_logout?username=root&token=3506402
+	
+	返回
+		{
+			"message":"保持登陆", 
+			"ret_code":1
+		}
+		
+		{
+			"message":"token失效", 
+			"ret_code":0
 		}
 
 ## 2. 日程模块
