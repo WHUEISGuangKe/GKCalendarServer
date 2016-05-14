@@ -56,7 +56,7 @@ public class LoginFilter implements Filter {
 			String username = request.getParameter("username");
 			boolean flag = false;
 			if (token != null && username != null && !token.isEmpty() && !username.isEmpty()) {
-				if (VersionController.TokenMap.get(username) == null && !VersionController.TokenMap.get(username).equals(token))
+				if (VersionController.TokenMap.get(username) == null || !VersionController.TokenMap.get(username).equals(token))
 					flag = true;
 			} else {
 				flag = true;

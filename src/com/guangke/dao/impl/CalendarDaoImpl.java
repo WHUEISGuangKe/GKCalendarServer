@@ -2,6 +2,8 @@ package com.guangke.dao.impl;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -55,6 +57,15 @@ public class CalendarDaoImpl implements CalendarDao {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+		Collections.sort(list, new Comparator<CalendarBean>(){
+			@Override
+			public int compare(CalendarBean o1, CalendarBean o2) {
+				if (o1.getDate() >= o2.getDate()) {
+					return 1;
+				}else
+					return -1;
+			}
+		});
 		return list;
 	}
 
@@ -99,7 +110,7 @@ public class CalendarDaoImpl implements CalendarDao {
 			e.printStackTrace();
 			return false;
 		}
-		VersionController.VersionMap.put(calendar_id, ++ version);
+		VersionController.VersionMap.put(calendar_id, version);
 		return true;
 	}
 

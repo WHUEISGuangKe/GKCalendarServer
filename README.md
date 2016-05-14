@@ -99,7 +99,7 @@
             					"content": "123"
      			 			}
     		],
-    		"ret_code": 200
+    		"ret_code": 1
 		}
 		
 ### 2.2 创建个人日程
@@ -111,18 +111,19 @@
 	返回
 		{
 		"message":"创建日程成功",
-		"ret_code":200
+		"ret_code":1
 		}
 		
 ### 2.3 添加成员
 	请求
 		接口：http://localhost:8080/GKCalendarServer/calendar_addMember
-		参数：username（用户名）、 token 、 newMemberName(新用户名) 、 calendar_id（日程id）		示例：http://localhost:8080/GKCalendarServer/calendar_addMember?username=root&newMemberName=root1&token=3506402&calendar_id=11
+		参数：username（用户名）、 token 、 newMemberName(新用户名) 、 calendar_id（日程id）		
+		示例：http://localhost:8080/GKCalendarServer/calendar_addMember?username=root&newMemberName=root1&token=3506402&calendar_id=11
 	
 	返回
 		{
 		"message":"添加成员成功",
-		"ret_code":200
+		"ret_code":1
 		}
 		
 ### 2.4 修改日程内容
@@ -135,13 +136,13 @@
 		{
 		"calendar_id":1,
 		"message":"success", // 成功更新
-		"ret_code":200,
+		"ret_code":1,
 		"version":9
 		}
 		
 		{
 		"calendar_id":1,
 		"message":"failure", // 失败更新
-		"ret_code":200,
+		"ret_code":0,
 		"version":8 // 日程服务端当前版本
 		}

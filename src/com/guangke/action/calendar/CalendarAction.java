@@ -45,7 +45,7 @@ public class CalendarAction extends ActionSupport {
 				jsonArray.put(calendarJson);
 			}
 	
-			all.put("ret_code", 200);
+			all.put("ret_code", 1);
 			all.put("message", jsonArray);
 			
 			
@@ -67,10 +67,10 @@ public class CalendarAction extends ActionSupport {
 		JSONObject jsonObject = new JSONObject();
 		try {
 			if (flag) {
-				jsonObject.put("ret_code", 200);
+				jsonObject.put("ret_code", 1);
 				jsonObject.put("message", "创建日程成功");
 			}else {
-				jsonObject.put("ret_code", 200);
+				jsonObject.put("ret_code", 0);
 				jsonObject.put("message", "创建失败");
 			}
 		} catch (Exception e) {
@@ -91,10 +91,10 @@ public class CalendarAction extends ActionSupport {
 		JSONObject jsonObject = new JSONObject();
 		try {
 			if (flag) {
-				jsonObject.put("ret_code", 200);
+				jsonObject.put("ret_code", 1);
 				jsonObject.put("message", "添加成员成功");
 			}else {
-				jsonObject.put("ret_code", 200);
+				jsonObject.put("ret_code", 0);
 				jsonObject.put("message", "添加失败");
 			}
 		} catch (Exception e) {
@@ -116,12 +116,12 @@ public class CalendarAction extends ActionSupport {
 		JSONObject jsonObject = new JSONObject();
 		try {
 			if (flag) {
-				jsonObject.put("ret_code", 200);
+				jsonObject.put("ret_code", 1);
 				jsonObject.put("message", "success");
 				jsonObject.put("version", ++version);
 				jsonObject.put("calendar_id", calendar_id);
 			}else {
-				jsonObject.put("ret_code", 200);
+				jsonObject.put("ret_code", 0);
 				jsonObject.put("message", "failure");
 				jsonObject.put("version", ++version);
 				jsonObject.put("calendar_id", calendar_id);
