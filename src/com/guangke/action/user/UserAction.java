@@ -55,7 +55,8 @@ public class UserAction extends ActionSupport {
 		JSONObject jsonObject = new JSONObject();
 
 		if (flag) {
-			String token = username.hashCode() + "";
+			
+			String token = Integer.toUnsignedString(username.hashCode()) + "";
 			VersionController.TokenMap.put(username, token);
 			jsonObject.put("token", token);
 			jsonObject.put("ret_code", 1);

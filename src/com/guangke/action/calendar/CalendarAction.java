@@ -32,27 +32,38 @@ public class CalendarAction extends ActionSupport {
 		List<CalendarBean> list = service.queryCalendars(username);
 		JSONArray jsonArray = new JSONArray();
 		JSONObject all = new JSONObject();
-		try {
-			for (CalendarBean calendarBean : list) {
-				JSONObject calendarJson = new JSONObject();
-
-				calendarJson.put("calendar_id", calendarBean.getCalendar_id());
-				calendarJson.put("calendar_title", calendarBean.getCalendar_title());
-				calendarJson.put("version", calendarBean.getVersion());
-				calendarJson.put("unixstamp", calendarBean.getDate());
-				calendarJson.put("creator", calendarBean.getCreator());
-				calendarJson.put("content", calendarBean.getContent());
-				jsonArray.put(calendarJson);
+		boolean flag = true;
+		if (list == null) {
+			try{
+				all.put("ret_code", 0);
+				all.put("message", "error");
+			}catch (Exception e){
+				e.printStackTrace();
 			}
-	
-			all.put("ret_code", 1);
-			all.put("message", jsonArray);
-			
-			
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		}else{
+			try {
+				for (CalendarBean calendarBean : list) {
+					JSONObject calendarJson = new JSONObject();
+
+					calendarJson.put("calendar_id", calendarBean.getCalendar_id());
+					calendarJson.put("calendar_title", calendarBean.getCalendar_title());
+					calendarJson.put("version", calendarBean.getVersion());
+					calendarJson.put("unixstamp", calendarBean.getDate());
+					calendarJson.put("creator", calendarBean.getCreator());
+					calendarJson.put("content", calendarBean.getContent());
+					jsonArray.put(calendarJson);
+				}
+		
+				all.put("ret_code", 1);
+				all.put("message", jsonArray);
+				
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
+		
 		
 		WriteResponseUtil.writeResponse(all);
 	}
@@ -63,6 +74,7 @@ public class CalendarAction extends ActionSupport {
 	public void create(){
 		CalendarService service = new CalendarServiceImpl();
 		boolean flag = false;
+		System.out.println("创建日程："+ calendar_name + "-" + content);
 		flag = service.createCalendar(username, calendar_name, date, content);
 		JSONObject jsonObject = new JSONObject();
 		try {
